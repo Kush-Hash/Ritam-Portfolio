@@ -1,0 +1,90 @@
+.filler-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 0rem;
+    box-sizing: border-box;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.video-heading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: "Mozilla Headline", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 1rem;
+    text-align: center;
+}
+
+.video-element {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* ✅ Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .filler-container {
+        padding: 6rem 0;
+        /* compress vertical space */
+    }
+
+    .video-wrapper {
+        height: 60vh;
+        /* reduce video height */
+    }
+
+    .video-heading {
+        font-size: 6rem;
+        /* keep heading bold and large */
+        letter-spacing: 0.5rem;
+        padding: 0 1rem;
+        line-height: 1.1;
+    }
+
+    .video-element {
+        height: 60vh;
+        /* match wrapper height */
+        object-fit: cover;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .video-wrapper {
+        height: 50vh;
+    }
+
+    .filler-container {
+        padding: 5rem 0;
+    }
+
+    .video-heading {
+        font-size: 5rem;
+        letter-spacing: 0.3rem;
+    }
+
+    .video-element {
+        height: 50vh;
+    }
+}

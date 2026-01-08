@@ -1,0 +1,163 @@
+@import "./bonny.css";
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    // font-family: "Geist", sans-serif;
+    cursor: none;
+}
+
+body {
+    color: white;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+    scroll-snap-type: y proximity;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: center;
+}
+
+/* ---------- Global Section Layouts ---------- */
+.gallery-section {
+    height: 180vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section {
+    height: 155vh;
+    background-color: white;
+}
+
+.filler-Section {
+    background-color: white;
+    height: 110vh;
+}
+
+.service1 {
+    height: 105vh;
+}
+
+.service2 {
+    height: 105vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Contact {
+    margin-top: 5rem;
+}
+
+.works {
+    background-color: white;
+}
+
+/* ---------- Cursor & Button ---------- */
+.custom-cursor {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999999 !important;
+    mix-blend-mode: difference;
+}
+
+a,
+button,
+[role="button"] {
+    cursor: none !important;
+}
+
+.connectBtn {
+    position: fixed;
+    top: 1.5rem;
+    right: 4rem;
+    z-index: 3000;
+    padding: 0.9rem 2rem;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+        background: black;
+        color: white;
+        border-color: white;
+        box-shadow: 0 6px 12px rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+    }
+}
+
+/* ---------- Mobile Optimization ---------- */
+@media (max-width: 768px) {
+    body {
+        cursor: auto !important;
+    }
+
+    .custom-cursor {
+        display: none !important;
+    }
+
+    .connectBtn {
+        display: none !important;
+    }
+
+    .gallery-section {
+        height: 250vh !important;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .about-section {
+        height: 190vh;
+        background-color: white;
+    }
+
+
+    /* ✅ FIX: Let service sections grow with content on mobile */
+    .service1,
+    .service2 {
+        height: auto !important;
+        min-height: 100vh;
+        padding: 3rem 1.5rem;
+    }
+
+    section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .filler-Section {
+        background-color: white;
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

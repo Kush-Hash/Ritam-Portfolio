@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 9999;
+
+    .preloader-content {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .geometry {
+            position: relative;
+            width: 260px;
+            height: 260px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Circles */
+            .outer-circle,
+            .middle-circle,
+            .inner-circle {
+                position: absolute;
+                border-radius: 50%;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .outer-circle {
+                width: 260px;
+                height: 260px;
+            }
+
+            .middle-circle {
+                width: 180px;
+                height: 180px;
+                border-color: rgba(255, 255, 255, 0.35);
+            }
+
+            .inner-circle {
+                width: 110px;
+                height: 110px;
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+
+            /* Squares */
+            .outer-square,
+            .inner-square {
+                position: absolute;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+                transform-origin: center center;
+            }
+
+            .outer-square {
+                width: 200px;
+                height: 200px;
+                animation: rotateClockwise 7s linear infinite;
+            }
+
+            .inner-square {
+                width: 120px;
+                height: 120px;
+                border-color: rgba(255, 255, 255, 0.4);
+                animation: rotateAntiClockwise 7s linear infinite;
+            }
+
+            /* Diamond (rotated square) */
+            .diamond {
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+
+            /* Lines */
+            .line {
+                position: absolute;
+                background: rgba(255, 255, 255, 0.25);
+            }
+
+            .diag1 {
+                width: 1px;
+                height: 260px;
+                transform: rotate(45deg);
+            }
+
+            .diag2 {
+                width: 1px;
+                height: 260px;
+                transform: rotate(-45deg);
+            }
+
+            .horiz1 {
+                width: 260px;
+                height: 1px;
+                top: 50%;
+                left: 0;
+            }
+
+            .horiz2 {
+                width: 260px;
+                height: 1px;
+                top: 50%;
+                left: 0;
+                opacity: 0.15;
+            }
+
+            .vert1 {
+                width: 1px;
+                height: 260px;
+                left: 50%;
+                top: 0;
+            }
+
+            .vert2 {
+                width: 1px;
+                height: 260px;
+                left: 50%;
+                top: 0;
+                opacity: 0.15;
+            }
+
+            /* Triangles */
+            .triangle {
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                opacity: 0.25;
+            }
+
+            .triangle.top {
+                border-width: 0 8px 12px 8px;
+                border-color: transparent transparent #fff transparent;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .triangle.bottom {
+                border-width: 12px 8px 0 8px;
+                border-color: #fff transparent transparent transparent;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .triangle.left {
+                border-width: 8px 12px 8px 0;
+                border-color: transparent #fff transparent transparent;
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .triangle.right {
+                border-width: 8px 0 8px 12px;
+                border-color: transparent transparent transparent #fff;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            /* Central text */
+            .text {
+                position: relative;
+                z-index: 2;
+                font-size: 1.1rem;
+                letter-spacing: 0.45rem;
+                font-weight: 500;
+                color: #fff;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+/* --- Keyframes for square rotations --- */
+@keyframes rotateClockwise {
+    from {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(405deg);
+    }
+}
+
+@keyframes rotateAntiClockwise {
+    from {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(-315deg);
+    }
+}
