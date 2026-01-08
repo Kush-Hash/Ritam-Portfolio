@@ -13,7 +13,7 @@ const app = express();
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://ritam-portfolio-new-frontend.onrender.com"
+        "https://ritam-portfolio-w6tt.onrender.com"
     ],
     credentials: true,
 }));
