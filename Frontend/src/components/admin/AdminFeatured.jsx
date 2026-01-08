@@ -11,6 +11,8 @@ const AdminFeatured = () => {
     const [loading, setLoading] = useState(false);
     const [progress, setProgress] = useState(0);
 
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -32,7 +34,7 @@ const AdminFeatured = () => {
             setProgress(0);
 
             await axios.post(
-                "http://localhost:5000/api/featured",
+                `${API_BASE_URL}/api/featured`,
                 formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" },
