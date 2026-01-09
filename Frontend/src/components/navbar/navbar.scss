@@ -97,12 +97,13 @@
 /* 🔹 Mobile */
 @media (max-width: 768px) {
     .nav-wrapper {
-        width: 95%;
+        width: 45%;
         max-width: 500px;
-        justify-content: space-between; // ❌ no centering hack
+
+        justify-content: center; // ✅ center logo
     }
 
     .nav-right {
-        display: none; // ✅ hamburger handles mobile
+        display: none; // ✅ hide Projects + icons
     }
 }
