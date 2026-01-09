@@ -34,7 +34,7 @@ export default function Home() {
                         fit={1.2}
                         minRadius={1300}
                         maxVerticalRotationDeg={10}
-                        dragDampening={0.5}
+                        dragDampening={10}
                     />
                 </div>
             )}

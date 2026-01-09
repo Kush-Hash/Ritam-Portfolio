@@ -70,7 +70,7 @@ const Portfolio = () => {
     }, []);
 
     return (
-        <div className="portfolio" ref={ref}>
+        <div className="Portfolio" id="portfolio" ref={ref}>
             <div className="progress">
                 <h1>BEST WORKS</h1>
                 <motion.div style={{ scaleX }} className="progressBar" />

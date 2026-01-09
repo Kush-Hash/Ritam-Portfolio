@@ -9,11 +9,7 @@
     justify-content: center;
     text-align: center;
 
-    /* 👇 Keeps footer at the bottom if content is short */
     position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
     margin-top: auto;
 
     .footer-content {
@@ -26,6 +22,7 @@
         gap: 2rem;
         margin-bottom: 2rem;
 
+        /* LEFT */
         .footer-left {
             flex: 1;
             text-align: left;
@@ -43,6 +40,7 @@
             }
         }
 
+        /* CENTER */
         .footer-center {
             flex: 1;
             text-align: center;
@@ -52,8 +50,6 @@
                 padding: 0;
                 margin: 0;
                 display: flex;
-                // flex-direction: column;
-
                 gap: 2rem;
 
                 li a {
@@ -69,6 +65,7 @@
             }
         }
 
+        /* RIGHT */
         .footer-right {
             flex: 1;
             text-align: right;
@@ -98,6 +95,7 @@
         }
     }
 
+    /* BOTTOM */
     .footer-bottom {
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         width: 100%;
@@ -111,40 +109,46 @@
     }
 }
 
-/* ✅ Responsive for Mobile */
+/* =========================
+   📱 MOBILE ONLY FIXES
+   ========================= */
 @media (max-width: 768px) {
     .footer {
-        padding: 3rem 1.5rem 1rem;
-        text-align: center;
+        padding: 3rem 1.5rem 1.5rem;
 
         .footer-content {
             flex-direction: column;
             align-items: center;
+            gap: 2rem;
+        }
+
+        /* ❌ Hide LEFT section on mobile */
+        .footer-left {
+            display: none;
+        }
+
+        /* ✅ Links in COLUMN on mobile only */
+        .footer-center {
+            width: 100%;
             text-align: center;
-            gap: 1.5rem;
 
-            .footer-left,
-            .footer-center,
-            .footer-right {
-                text-align: center;
-                flex: none;
-                width: 100%;
+            ul {
+                flex-direction: column;
+                gap: 1.2rem;
             }
 
-            .footer-left h2 {
-                font-size: 1.8rem;
+            ul li a {
+                font-size: 1.05rem;
             }
+        }
 
-            .footer-left p {
-                font-size: 0.95rem;
-            }
+        /* ✅ Center socials */
+        .footer-right {
+            width: 100%;
+            text-align: center;
 
-            .footer-center ul li a {
-                font-size: 1rem;
-            }
-
-            .footer-right .social-icons {
-                justify-content: center !important;
+            .social-icons {
+                justify-content: center;
 
                 img {
                     width: 1.8rem;
@@ -155,7 +159,10 @@
 
         .footer-bottom {
             margin-top: 1.5rem;
-            font-size: 0.85rem;
+
+            p {
+                font-size: 0.85rem;
+            }
         }
     }
 }

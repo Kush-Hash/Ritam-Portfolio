@@ -26,23 +26,42 @@ const Links = ({ setOpen }) => { // ✅ Accept setOpen prop
     ];
 
     const handleClick = (item) => {
+        const lowerItem = item.toLowerCase();
+
+        // Contact page
         if (item === "Contact") {
             navigate("/contact");
-        } else if (item === "Works") {
+        }
+
+        // Works page
+        else if (item === "Works") {
             navigate("/works");
-        } else {
-            const targetId = item.toLowerCase();
-            if (window.location.pathname === "/") {
-                const section = document.getElementById(targetId);
-                if (section) section.scrollIntoView({ behavior: "smooth" });
-            } else {
+        }
+
+        // Home (go only to "/")
+        else if (item === "HomePage") {
+            navigate("/");
+        }
+
+        // All section-based navigation (Gallery, About, Services, etc.)
+        else {
+            const targetId = lowerItem;
+
+            if (window.location.pathname !== "/") {
+                // First go to home, then scroll
                 navigate(`/#${targetId}`);
+            } else {
+                // Already on home, just scroll
+                const section = document.getElementById(targetId);
+                if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                }
             }
         }
 
-        // ✅ Close sidebar automatically (especially for mobile)
+        // ✅ Close sidebar (mobile)
         if (window.innerWidth <= 768) {
-            setTimeout(() => setOpen(false), 300); // small delay for smoother UX
+            setTimeout(() => setOpen(false), 300);
         }
     };
 

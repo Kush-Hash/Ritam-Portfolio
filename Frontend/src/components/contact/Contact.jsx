@@ -1,120 +1,76 @@
 import { useRef, useState } from "react";
-import "./contact.scss";
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
-const leftFade = {
-    initial: { x: -80, opacity: 0 },
-    animate: {
-        x: 0,
-        opacity: 1,
-        transition: { duration: 0.8, ease: "easeOut" },
-    },
-};
-
-const rightFade = {
-    initial: { x: 80, opacity: 0 },
-    animate: {
-        x: 0,
-        opacity: 1,
-        transition: { duration: 0.8, ease: "easeOut" },
-    },
-};
+import "./contact.scss";
 
 const Contact = () => {
     const formRef = useRef();
-    const [status, setStatus] = useState(""); // success / error / sending
+    const [loading, setLoading] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
-        setStatus("sending");
+        setLoading(true);
 
         emailjs
-            .sendForm("service_xh3ari8", "template_vkswime", formRef.current, {
-                publicKey: "H4srVxa2EWjxB5sWJ",
-            })
+            .sendForm(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                formRef.current,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            )
             .then(
                 () => {
-                    setStatus("success");
-                    formRef.current.reset(); // clear inputs
-                    setTimeout(() => setStatus(""), 3000); // hide after 3s
+                    alert("Message sent successfully!");
+                    formRef.current.reset();
+                    setLoading(false);
                 },
                 (error) => {
-                    console.error("FAILED...", error.text);
-                    setStatus("error");
-                    setTimeout(() => setStatus(""), 3000);
+                    console.error(error);
+                    alert("Failed to send message. Try again.");
+                    setLoading(false);
                 }
             );
     };
 
     return (
-        <motion.div
-            className="contact"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.3 }}
-        >
-            {/* Background Video */}
-            <video
-                className="backgroundVideo"
-                src="https://res.cloudinary.com/dwnoyi7gc/video/upload/v1767890733/contact_oznkjd.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-            />
+        <section className="contact">
+            <div className="contact-inner">
+                {/* LEFT */}
+                <div className="left">
+                    <h1 className="title">
+                        Let’s <span>Talk</span>
+                    </h1>
 
-            <motion.div className="textContainer" variants={leftFade}>
-                <h1>Let's Work Together</h1>
-                <div className="item">
-                    <h2>Mail</h2>
-                    <span>ritammail@gmail.com</span>
-                </div>
-                <div className="item">
-                    <h2>Address</h2>
-                    <span>Kalyani, Nadia</span>
-                </div>
-                <div className="item">
-                    <h2>Phone</h2>
-                    <span>9145326897</span>
-                </div>
-            </motion.div>
+                    <p className="intro">
+                        Feel free to reach out for projects,
+                        collaborations or just a simple hello.
+                    </p>
 
-            <motion.div className="formContainer" variants={rightFade}>
-                <motion.form ref={formRef} onSubmit={sendEmail}>
-                    <input type="text" required placeholder="Your Name" name="name" />
-                    <input type="email" required placeholder="Your Email" name="email" />
-                    <textarea rows={8} placeholder="Message" name="message" />
-                    <button disabled={status === "sending"}>
-                        {status === "sending" ? "Sending..." : "Submit"}
+                    <div className="details">
+                        <p><span>Email</span> — ritammail@gmail.com</p>
+                        <p><span>Address</span> — Kalyani, Nadia</p>
+                        <p><span>Phone</span> — +91 91453 26897</p>
+                    </div>
+                </div>
+
+                {/* RIGHT */}
+                <form ref={formRef} className="form" onSubmit={sendEmail}>
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="tel" name="phone" placeholder="Phone" />
+                    <textarea name="message" placeholder="Message" rows="4" required />
+
+                    <button type="submit" disabled={loading}>
+                        {loading ? "Sending..." : "Submit"}
                     </button>
-                </motion.form>
+                </form>
+            </div>
 
-                {/* Status Message */}
-                {status === "success" && (
-                    <motion.p
-                        className="status success"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.4, ease: "easeOut" }}
-                    >
-                        Message sent successfully!
-                    </motion.p>
-                )}
-                {status === "error" && (
-                    <motion.p
-                        className="status error"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.4, ease: "easeOut" }}
-                    >
-                        Failed to send. Try again!
-                    </motion.p>
-                )}
-            </motion.div>
-        </motion.div>
+            {/* subtle lines */}
+            <div className="lines">
+                <span />
+                <span />
+            </div>
+        </section>
     );
 };
 

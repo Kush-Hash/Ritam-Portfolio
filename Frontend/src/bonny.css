@@ -37,3 +37,10 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Humankind';
+    src: url('./fonts/humankind.woff2') format('woff2');
+    font-style: normal;
+    font-display: swap;
+}

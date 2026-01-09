@@ -4,35 +4,35 @@ import './DomeGallery.css';
 
 const DEFAULT_IMAGES = [
     {
-        src: './photo1.jpg',
+        src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938387/photo1_voxypc.jpg',
         alt: 'Abstract art'
     },
     {
-        src: './photo2.jpg',
+        src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938387/photo2_oou34v.jpg',
         alt: 'Modern sculpture'
     },
     {
-        src: './photo3.jpg',
+        src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938391/photo3_qrjkzv.jpg',
         alt: 'Digital artwork'
     },
     {
-        src: './photo4.jpg',
+        src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938388/photo4_hsusfx.jpg',
         alt: 'Contemporary art'
     },
     {
-        src: './photo5.jpg',
+        src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938387/photo5_k4vyqs.jpg',
         alt: 'Geometric pattern'
     },
     {
-        src: './photo6.jpg',
+        src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938388/photo6_mg930x.jpg',
         alt: 'Textured surface'
     },
-    { src: './photo7.jpg', alt: 'Social media image' },
-    { src: './photo8.jpg', alt: 'Social media image' },
-    { src: './photo9.jpg', alt: 'Social media image' },
-    { src: './photo10.jpg', alt: 'Social media image' },
-    { src: './photo11.jpg', alt: 'Social media image' },
-    { src: './profile.jpg', alt: 'Social media image' }
+    { src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938388/photo7_gk5iep.jpg', alt: 'Social media image' },
+    { src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938388/photo8_hlpvoc.jpg', alt: 'Social media image' },
+    { src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938389/photo9_blz3iz.jpg', alt: 'Social media image' },
+    { src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938388/photo10_jctxhe.jpg', alt: 'Social media image' },
+    { src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938387/photo11_qivc2n.jpg', alt: 'Social media image' },
+    { src: 'https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938391/profile_nmxaw0.jpg', alt: 'Social media image' }
 
 ];
 

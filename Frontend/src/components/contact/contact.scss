@@ -1,226 +1,180 @@
 .contact {
-    position: relative;
+    background: #000;
+    color: #fff;
     min-height: 100vh;
-    width: 100%;
+    padding: 120px 20px 80px 20px; // side padding added for phones
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
     overflow: hidden;
-    padding: 0 2rem;
-    color: white;
-    gap: 10rem;
+    font-family: "Inter", sans-serif;
+}
 
-    .backgroundVideo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-        filter: brightness(0.5);
+.contact-inner {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 1024px) {
+        gap: 50px;
     }
 
-    .textContainer {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        padding-left: 12rem;
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+}
 
-        h1 {
-            font-size: 5rem;
-            line-height: 5rem;
-            font-weight: 700;
+/* LEFT */
+.left {
+    .title {
+        font-size: 60px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        line-height: 1.1;
+
+        span {
+            background: #fff;
+            color: #000;
+            padding: 0 8px;
         }
 
-        .item {
-            h2 {
-                font-size: 2rem;
-                font-weight: 600;
-                letter-spacing: 0.15rem;
-            }
+        @media (max-width: 900px) {
+            font-size: 46px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 38px;
+        }
+    }
+
+    .intro {
+        font-size: 1.2rem;
+        font-family: "Bonny", sans-serif;
+        color: #fff;
+        margin-bottom: 40px;
+        line-height: 1.6;
+
+        @media (max-width: 480px) {
+            font-size: 1rem;
+        }
+    }
+
+    .details {
+        p {
+            font-family: "Bonny", sans-serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin: 14px 0;
+            color: #ccc;
+            word-break: break-word;
 
             span {
-                font-weight: 300;
-                font-size: 1.2rem;
-                color: #e0e0e0;
+                color: #fff;
+            }
+
+            @media (max-width: 900px) {
+                font-size: 1.6rem;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 1.3rem;
             }
         }
     }
+}
 
-    .formContainer {
-        flex: 1;
-        padding-right: 12rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+/* RIGHT FORM */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
+    @media (max-width: 900px) {
+        max-width: 500px;
+        margin: 0 auto;
+    }
 
-            input,
-            textarea {
-                padding: 1.1rem;
-                background-color: rgba(0, 0, 0, 0.4);
-                border: 1px solid rgba(255, 255, 255, 0.6);
-                color: white;
-                border-radius: 0.5rem;
-                font-size: 1rem;
-                outline: none;
-                transition: all 0.3s ease;
+    input,
+    textarea {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #444;
+        padding: 14px 0;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
 
-                &:focus {
-                    border-color: white;
-                    background-color: rgba(0, 0, 0, 0.8);
-                }
-            }
+        &::placeholder {
+            color: #666;
+        }
 
-            button {
-                padding: 1.2rem;
-                border: none;
-                background-color: white;
-                color: black;
-                font-weight: 600;
-                border-radius: 0.5rem;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                font-size: 1.2rem;
+        &:focus {
+            border-bottom-color: #fff;
+        }
 
-                &:hover {
-                    background-color: black;
-                    color: white;
-                    border: 2px solid white;
-                }
-
-                &:disabled {
-                    opacity: 0.6;
-                    cursor: not-allowed;
-                }
-            }
+        @media (max-width: 480px) {
+            font-size: 13px;
         }
     }
 
-    .status {
-        margin-top: 1rem;
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: center;
-        opacity: 0.9;
-        transition: opacity 0.3s ease;
+    textarea {
+        resize: none;
+    }
 
-        &.success {
-            color: #4caf50;
+    button {
+        margin-top: 20px;
+        background: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 14px;
+        font-size: 13px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #fff;
+            color: #000;
         }
 
-        &.error {
-            color: #ff4c4c;
+        @media (max-width: 480px) {
+            padding: 16px;
+            font-size: 12px;
+        }
+    }
+}
+
+/* subtle background lines */
+.lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    span {
+        position: absolute;
+        width: 1px;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.04);
+        top: -50%;
+
+        &:nth-child(1) {
+            left: 30%;
+        }
+
+        &:nth-child(2) {
+            left: 70%;
         }
     }
 
-    /* ---------- Tablet (max-width: 1024px) ---------- */
-    @media (max-width: 1024px) {
-        gap: 4rem;
-
-        .textContainer {
-            padding-left: 6rem;
-
-            h1 {
-                font-size: 3.5rem;
-                line-height: 4rem;
-            }
-
-            .item h2 {
-                font-size: 1.5rem;
-            }
-
-            .item span {
-                font-size: 1rem;
-            }
-        }
-
-        .formContainer {
-            padding-right: 6rem;
-        }
-    }
-
-    /* ---------- Mobile (max-width: 768px) ---------- */
-    @media (max-width: 768px) {
-        flex-direction: column;
-        justify-content: center;
-        gap: 3rem;
-        padding: 4rem 1.5rem;
-        text-align: center;
-
-
-        .textContainer {
-            padding-left: 0;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 4rem;
-
-            h1 {
-                font-size: 2.6rem;
-                line-height: 3rem;
-            }
-
-            .item {
-                h2 {
-                    font-size: 1.2rem;
-                }
-
-                span {
-                    font-size: 1rem;
-                }
-            }
-        }
-
-        .formContainer {
-            padding-right: 0;
-            width: 100%;
-
-            form {
-                width: 100%;
-
-                input,
-                textarea {
-                    font-size: 0.95rem;
-                    padding: 1rem;
-                }
-
-                button {
-                    font-size: 1rem;
-                    padding: 1rem;
-                }
-            }
-        }
-
-        .backgroundVideo {
-            filter: brightness(0.45);
-        }
-    }
-
-    /* ---------- Small Devices (max-width: 480px) ---------- */
-    @media (max-width: 480px) {
-        gap: 2rem;
-        padding: 3rem 1rem;
-
-        .textContainer h1 {
-            font-size: 2.2rem;
-            line-height: 2.6rem;
-        }
-
-        .formContainer form input,
-        .formContainer form textarea {
-            font-size: 0.9rem;
-            padding: 0.9rem;
-        }
-
-        .formContainer form button {
-            font-size: 0.95rem;
-            padding: 0.9rem;
-        }
+    @media (max-width: 900px) {
+        display: none; // remove lines on small screens
     }
 }
