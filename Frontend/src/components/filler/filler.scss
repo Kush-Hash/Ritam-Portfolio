@@ -47,11 +47,12 @@
     .filler-container {
         padding: 6rem 0;
         /* compress vertical space */
+        margin-bottom: -20vh;
     }
 
     .video-wrapper {
         height: 60vh;
-        /* reduce video height */
+
     }
 
     .video-heading {

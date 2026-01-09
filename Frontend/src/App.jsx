@@ -7,7 +7,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Preloader from "./components/preloader/Preloader";
 import Contact from "./components/contact/Contact";
 import Home from "./pages/Home";
-import Works from "./pages/Works";
+import Projects from "./pages/Projects";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Admin from "./components/admin/Admin";
@@ -151,7 +151,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/works" element={<Works />} />
+              <Route path="/projects" element={<Projects />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/admin/featured" element={<AdminFeatured />} />
             </Routes>

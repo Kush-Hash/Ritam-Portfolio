@@ -1,8 +1,21 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./footer.scss";
 
 const Footer = () => {
+    const navigate = useNavigate();
+
+    const handleNavClick = (sectionId) => {
+        navigate("/");
+
+        setTimeout(() => {
+            const el = document.getElementById(sectionId);
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+            }
+        }, 100);
+    };
+
     return (
         <footer className="footer">
             <motion.div
@@ -11,28 +24,54 @@ const Footer = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                {/* Left Section */}
+                {/* Left */}
                 <div className="footer-left">
                     <h2>RITAM</h2>
                     <p>Crafting visuals that tell your story.</p>
                 </div>
 
-                {/* Center Section — Links */}
+                {/* Center */}
                 <div className="footer-center">
                     <ul>
-                        <li><a href="#HomePage">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Best Works</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
                         <li>
-                            <Link to="/admin">Admin</Link>
+                            <button onClick={() => handleNavClick("hero")}>
+                                Home
+                            </button>
                         </li>
 
+                        <li>
+                            <button onClick={() => handleNavClick("about")}>
+                                About
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={() => navigate("/projects")}>
+                                Projects
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={() => handleNavClick("services")}>
+                                Services
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={() => navigate("/contact")}>
+                                Contact Me
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={() => navigate("/admin")}>
+                                Admin
+                            </button>
+                        </li>
                     </ul>
                 </div>
 
-                {/* Right Section — Socials */}
+                {/* Right */}
                 <div className="footer-right">
                     <p>Follow Me</p>
                     <div className="social-icons">
@@ -55,7 +94,7 @@ const Footer = () => {
                 </div>
             </motion.div>
 
-            {/* Bottom Copyright */}
+            {/* Bottom */}
             <div className="footer-bottom">
                 <p>© {new Date().getFullYear()} ANKUSH. All rights reserved.</p>
             </div>

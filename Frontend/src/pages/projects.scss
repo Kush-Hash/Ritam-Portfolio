@@ -1,9 +1,8 @@
-.works {
+.projects {
     width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 0 4rem;
     box-sizing: border-box;
 
@@ -17,45 +16,84 @@
         /* ---------- TEXT SECTION ---------- */
         .text-section {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            flex-direction: column;
-            text-align: center;
-            gap: 1.2rem;
+            gap: 3rem;
 
+            /* ---------- LEFT TEXT ---------- */
             .text-left {
                 flex: 1;
                 min-width: 280px;
+                display: flex;
+                flex-direction: column;
+                gap: 1.4rem;
 
-                h2 {
-                    font-size: 1rem;
-                    font-weight: 500;
-                    color: #777;
-                    text-transform: uppercase;
-                    margin-bottom: 0.5rem;
+                /* H2 + HR */
+                .heading-line {
+                    display: flex;
+                    align-items: center;
+                    gap: 1.2rem;
+
+                    h2 {
+                        font-size: 1rem;
+                        font-weight: 500;
+                        color: #777;
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                    }
+
+                    .line {
+                        flex: 1;
+
+                        hr {
+                            width: 100%;
+                            height: 1px;
+                            border: none;
+                            background-color: #999;
+                        }
+                    }
                 }
 
+                /* MAIN HEADING */
                 h1 {
                     font-family: "Geist", sans-serif;
                     font-size: 3.8rem;
                     font-weight: 800;
                     color: #111;
-                    margin-bottom: 1rem;
                     line-height: 1.3;
                     max-width: 800px;
                 }
 
-                p {
-                    font-size: 1.2rem;
-                    color: #555;
-                    max-width: 600px;
-                    line-height: 1.6;
-                    margin: 0 auto;
+                /* HR + P */
+                .subline {
+                    display: flex;
+                    align-items: center;
+                    gap: 1.2rem;
+
+                    .line {
+                        flex: 1;
+
+                        hr {
+                            width: 100%;
+                            height: 1px;
+                            border: none;
+                            background-color: #999;
+                        }
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        color: #555;
+                        white-space: nowrap;
+                    }
                 }
             }
 
+            /* ---------- RIGHT CTA ---------- */
             .text-right {
-                margin-top: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
 
                 button {
                     background-color: white;
@@ -65,7 +103,7 @@
                     border-radius: 5px;
                     font-size: 1.2rem;
                     cursor: pointer;
-                    transition: 0.3s;
+                    transition: 0.3s ease;
 
                     &:hover {
                         background-color: black;
@@ -82,7 +120,6 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 2.5rem;
-            width: 100%;
 
             .video-card {
                 position: relative;
@@ -92,7 +129,6 @@
                 max-width: 480px;
                 height: 480px;
                 transition: transform 0.3s ease;
-                margin-bottom: 1rem;
 
                 &:hover {
                     transform: scale(1.03);
@@ -102,8 +138,6 @@
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    display: block;
-                    border-radius: 12px;
                 }
 
                 .title {
@@ -112,118 +146,78 @@
                     left: 0;
                     right: 0;
                     padding: 0.8rem 1rem;
-                    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+                    background: linear-gradient(to top,
+                            rgba(0, 0, 0, 0.7),
+                            transparent);
                     color: white;
                     font-size: 1rem;
-                    font-weight: 500;
-                    border-radius: 0 0 12px 12px;
                 }
             }
         }
 
-        /* ---------- RESPONSIVENESS ---------- */
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 1200px) {
-            padding-top: 6rem;
-
-            .text-section .text-left h1 {
+            .text-left h1 {
                 font-size: 3rem;
             }
 
-            .video-grid .video-card {
-                flex: 1 1 calc(45% - 1rem);
+            .video-card {
                 height: 360px;
             }
         }
 
+        /* ---------- MOBILE & TABLET ---------- */
         @media (max-width: 900px) {
             .text-section {
+                flex-direction: column;
                 text-align: center;
-                align-items: center;
 
-                .text-left h1 {
-                    font-size: 2.8rem;
+                .text-left {
+                    align-items: center;
+
+                    .heading-line,
+                    .subline {
+                        width: 100%;
+                    }
+
+                    .subline p {
+                        white-space: normal;
+                    }
                 }
 
-                .text-left p {
-                    font-size: 1.05rem;
+                .text-right {
+                    justify-content: center;
                 }
-            }
-
-            .video-grid .video-card {
-                flex: 1 1 calc(45% - 1rem);
-                height: 340px;
             }
         }
 
         @media (max-width: 768px) {
-            margin-top: 5rem;
-
-            .text-section {
-                .text-left h1 {
-                    font-size: 2.4rem;
-                    max-width: 90%;
-                }
-
-                .text-left p {
-                    font-size: 1rem;
-                    max-width: 85%;
-                }
+            .text-left h1 {
+                font-size: 2.4rem;
             }
 
             .video-grid {
                 flex-direction: column;
-                align-items: center;
-                gap: 2rem;
 
                 .video-card {
                     width: 100%;
                     max-width: 95%;
                     height: 55vh;
-                    /* ✅ Bigger for mobile */
                 }
             }
         }
 
         @media (max-width: 480px) {
-            margin-top: 5.5rem;
-            padding: 2rem 1.5rem;
-
-            .text-section {
-                text-align: center;
-
-                .text-left h1 {
-                    font-size: 2rem;
-                    line-height: 1.3;
-                }
-
-                .text-left p {
-                    font-size: 0.95rem;
-                    color: #666;
-                }
+            .text-left h1 {
+                font-size: 2rem;
             }
 
-            .video-grid .video-card {
-                width: 100%;
-                max-width: 95%;
+            .subline p {
+                font-size: 1rem;
+            }
+
+            .video-card {
                 height: 70vh;
-                /* ✅ Larger video cards on small phones */
-            }
-        }
-
-        @media (max-width: 360px) {
-            margin-top: 6rem;
-
-            .text-section .text-left h1 {
-                font-size: 1.8rem;
-            }
-
-            .text-section .text-left p {
-                font-size: 0.85rem;
-            }
-
-            .video-grid .video-card {
-                height: 70vh;
-                /* ✅ Take more height on very small phones */
             }
         }
     }

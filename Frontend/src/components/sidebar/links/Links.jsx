@@ -20,7 +20,7 @@ const Links = ({ setOpen }) => { // ✅ Accept setOpen prop
         "About",
         "Portfolio",
         "Services",
-        "Works",
+        "Projects",
         "Contact"
     ];
 
@@ -32,9 +32,9 @@ const Links = ({ setOpen }) => { // ✅ Accept setOpen prop
             navigate("/contact");
         }
 
-        // Works page
-        else if (item === "Works") {
-            navigate("/works");
+        // Projects page
+        else if (item === "Projects") {
+            navigate("/projects");
         }
 
         // Home (go only to "/")

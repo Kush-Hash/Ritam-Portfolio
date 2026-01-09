@@ -11,7 +11,7 @@
     color: white;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; // ⬅️ desktop stays left
     overflow: hidden;
     padding-top: 5rem;
 
@@ -25,35 +25,34 @@
         filter: brightness(0.5);
     }
 
-    /* ================= Left Content ================= */
+    /* ================= Left Content (Desktop Default) ================= */
     .heroContent {
         position: relative;
         z-index: 5;
         max-width: 700px;
-        margin-left: 15rem;
+        margin-left: 15rem; // ⬅️ desktop spacing
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        text-align: left;
+        align-items: flex-start;
 
         h2 {
             font-size: 1.2rem;
             font-weight: 500;
-            letter-spacing: 0; // ⬅️ remove clutter
             color: #f5f5f5;
         }
 
         h1 {
-            font-family: 'Zina-Regular';
+            font-family: "Zina-Regular";
             font-size: 5rem;
-            font-weight: 500; // ⬅️ was 900 (too heavy)
-            line-height: 1.25; // ⬅️ fixes overlap
-            letter-spacing: 0; // ⬅️ critical
+            font-weight: 500;
+            line-height: 1.25;
         }
 
         p {
             font-size: 1.2rem;
             line-height: 1.6;
-            letter-spacing: 0;
             max-width: 500px;
         }
 
@@ -66,7 +65,7 @@
                 padding: 1.2rem 2rem;
                 font-size: 1rem;
                 font-weight: 600;
-                letter-spacing: 0.5px; // controlled
+                letter-spacing: 0.5px;
                 border-radius: 5px;
                 cursor: pointer;
                 transition: 0.3s ease;
@@ -97,57 +96,62 @@
         }
     }
 
-    /* ================= Responsive ================= */
-
+    /* ================= Tablet ================= */
     @media (max-width: 1024px) {
         .heroContent {
             margin-left: 5rem;
 
             h1 {
                 font-size: 3.2rem;
-                line-height: 1.25;
             }
         }
     }
 
+    /* ================= Mobile ONLY ================= */
     @media (max-width: 768px) {
-        justify-content: center;
+        justify-content: center; // ✅ center container
 
         .heroContent {
-            margin: 0;
-            text-align: center;
-            align-items: center;
-            padding: 0 1rem;
+            margin: 0; // ✅ remove left spacing
+            padding: 0 1.2rem;
+            text-align: center; // ✅ center text
+            align-items: center; // ✅ center items
+
+            h2 {
+                margin-bottom: 1rem;
+            }
 
             h1 {
-                font-size: 2.3rem;
+                font-size: 3rem;
                 line-height: 1.3;
+                margin-bottom: 1rem;
             }
 
             p {
-                font-size: 1rem;
-                line-height: 1.5;
+                font-size: 1.5rem; // ✅ slightly larger on phone
+                line-height: 1.6;
             }
 
             .buttons {
-                flex-direction: column;
+                flex-direction: row; // ✅ STILL side-by-side
+                justify-content: center;
 
                 button {
-                    width: 80%;
+                    width: auto; // ❌ no full-width buttons
                 }
             }
         }
     }
 
+    /* ================= Small Phones ================= */
     @media (max-width: 480px) {
         .heroContent {
             h1 {
-                font-size: 1.9rem;
-                line-height: 1.35;
+                font-size: 2rem;
             }
 
             p {
-                font-size: 0.9rem;
+                font-size: 1.15rem;
             }
         }
     }

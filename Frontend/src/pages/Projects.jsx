@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./works.scss";
+import "./projects.scss";
 
 const Works = () => {
     const navigate = useNavigate();
@@ -27,14 +27,31 @@ const Works = () => {
     }, []);
 
     return (
-        <div className="works">
+        <div className="projects">
             <div className="wrapper">
 
                 <div className="text-section">
                     <div className="text-left">
-                        <h2>Where vision meets the frame</h2>
+
+                        {/* H2 + HR (side by side) */}
+                        <div className="heading-line">
+                            <h2>Where vision meets the frame</h2>
+                            <span className="line">
+                                <hr />
+                            </span>
+                        </div>
+
+                        {/* Main Heading */}
                         <h1>Bringing stories to life, one frame at a time</h1>
-                        <p>Every frame tells a story.</p>
+
+                        {/* HR + P (side by side) */}
+                        <div className="subline">
+                            <span className="line">
+                                <hr />
+                            </span>
+                            <p>Every frame tells a story.</p>
+                        </div>
+
                     </div>
 
                     <div className="text-right">

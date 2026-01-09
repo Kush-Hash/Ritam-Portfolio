@@ -8,6 +8,7 @@ const Hero = () => {
     return (
         <motion.div
             className="hero"
+            id="hero"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
