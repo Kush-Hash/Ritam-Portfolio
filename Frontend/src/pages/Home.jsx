@@ -31,8 +31,8 @@ export default function Home() {
             {!isMobile && (
                 <div style={{ width: '100%', height: '110vh', marginBottom: '50px' }}>
                     <DomeGallery
-                        fit={1.2}
-                        minRadius={1300}
+                        fit={1}
+                        minRadius={1000}
                         maxVerticalRotationDeg={10}
                         dragDampening={10}
                     />
