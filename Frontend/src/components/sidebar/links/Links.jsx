@@ -17,7 +17,6 @@ const Links = ({ setOpen }) => { // ✅ Accept setOpen prop
 
     const items = [
         "Home",
-        "Gallery",
         "About",
         "Portfolio",
         "Services",

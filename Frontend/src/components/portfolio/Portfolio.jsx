@@ -29,9 +29,9 @@ const Single = ({ item, index }) => {
                             muted
                             playsInline
                             controls
+                            controlsList="nodownload noplaybackrate"
+                            disablePictureInPicture
                             className="video"
-                            onMouseEnter={(e) => (e.currentTarget.muted = false)}
-                            onMouseLeave={(e) => (e.currentTarget.muted = true)}
                         />
                     </motion.div>
 
