@@ -16,7 +16,7 @@ const Links = ({ setOpen }) => { // ✅ Accept setOpen prop
     const navigate = useNavigate();
 
     const items = [
-        "HomePage",
+        "Home",
         "Gallery",
         "About",
         "Portfolio",
@@ -39,7 +39,7 @@ const Links = ({ setOpen }) => { // ✅ Accept setOpen prop
         }
 
         // Home (go only to "/")
-        else if (item === "HomePage") {
+        else if (item === "Home") {
             navigate("/");
         }
 
