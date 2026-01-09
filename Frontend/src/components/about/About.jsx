@@ -63,7 +63,7 @@ const About = () => {
                     </div>
 
                     <div className="image-section">
-                        <img src="./profile.jpg" alt="Profile" />
+                        <img src="https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938391/profile_nmxaw0.jpg" alt="Profile" />
                     </div>
                 </div>
             </div>
