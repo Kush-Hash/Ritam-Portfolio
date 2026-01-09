@@ -19,6 +19,8 @@ const Single = ({ item, index }) => {
         <section className="portfolio-section" ref={sectionRef}>
             <div className="container">
                 <div className={`wrapper ${index % 2 !== 0 ? "reversed" : ""}`}>
+
+                    {/* 🎥 VIDEO WITH HOVER SOUND */}
                     <motion.div className="video-container" style={{ scale }}>
                         <video
                             src={item.video}
@@ -26,7 +28,10 @@ const Single = ({ item, index }) => {
                             loop
                             muted
                             playsInline
+                            controls
                             className="video"
+                            onMouseEnter={(e) => (e.currentTarget.muted = false)}
+                            onMouseLeave={(e) => (e.currentTarget.muted = true)}
                         />
                     </motion.div>
 
@@ -40,6 +45,7 @@ const Single = ({ item, index }) => {
                             See Demo
                         </button>
                     </motion.div>
+
                 </div>
             </div>
         </section>
@@ -64,7 +70,7 @@ const Portfolio = () => {
         axios
             .get(`${import.meta.env.VITE_API_BASE_URL}/api/featured`)
             .then((res) => {
-                setItems(res.data.slice(0, 3)); // only 3 featured
+                setItems(res.data.slice(0, 3));
             })
             .catch((err) => console.error("Featured fetch error:", err));
     }, []);
