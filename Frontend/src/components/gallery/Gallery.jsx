@@ -3,11 +3,24 @@ import "./gallery.scss";
 import { useNavigate } from "react-router-dom";
 
 const data = [
-    { src: "https://res.cloudinary.com/dwnoyi7gc/video/upload/v1767890844/reel1_puqua7.mp4", title: "Whispers of Mind" },
-    { src: "https://res.cloudinary.com/dwnoyi7gc/video/upload/v1767891118/reel2_ye22pm.mp4", title: "Embracing yourself" },
-    { src: "https://res.cloudinary.com/dwnoyi7gc/video/upload/v1767894767/reel3_qq5wlb.mp4", title: "Creative Block" },
-    { src: "https://res.cloudinary.com/dwnoyi7gc/video/upload/v1767894745/reel4_x7riok.mp4", title: "Chasing the Dream" },
+    {
+        src: "https://res.cloudinary.com/dwnoyi7gc/video/upload/q_auto,f_auto/reel1_puqua7.mp4",
+        title: "Whispers of Mind",
+    },
+    {
+        src: "https://res.cloudinary.com/dwnoyi7gc/video/upload/q_auto,f_auto/reel2_ye22pm.mp4",
+        title: "Embracing Yourself",
+    },
+    {
+        src: "https://res.cloudinary.com/dwnoyi7gc/video/upload/q_auto,f_auto/reel3_qq5wlb.mp4",
+        title: "Creative Block",
+    },
+    {
+        src: "https://res.cloudinary.com/dwnoyi7gc/video/upload/q_auto,f_auto/reel4_x7riok.mp4",
+        title: "Chasing the Dream",
+    },
 ];
+
 
 export default function Gallery() {
     const navigate = useNavigate();
@@ -51,11 +64,22 @@ export default function Gallery() {
                             zIndex: data.length - i,
                         }}
                     >
-                        <video src={item.src} autoPlay loop muted />
+                        <video
+                            src={item.src}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="metadata"
+                            loading="lazy"
+                            controls={false}
+                            disablePictureInPicture
+                        />
                         <p>{item.title}</p>
                     </motion.div>
                 ))}
             </div>
+
         </div>
     );
 }

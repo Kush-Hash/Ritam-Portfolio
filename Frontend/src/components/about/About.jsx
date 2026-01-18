@@ -59,7 +59,12 @@ const About = () => {
                     </div>
 
                     <div className="image-section">
-                        <img src="https://res.cloudinary.com/dwnoyi7gc/image/upload/v1767938391/profile_nmxaw0.jpg" alt="Profile" />
+                        <img
+                            src="https://res.cloudinary.com/dwnoyi7gc/image/upload/q_auto,f_auto,w_600/profile_nmxaw0.jpg"
+                            alt="Profile"
+                            loading="lazy"
+                            decoding="async"
+                        />
                     </div>
                 </div>
             </div>
