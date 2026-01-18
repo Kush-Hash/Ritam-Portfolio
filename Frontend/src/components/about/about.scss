@@ -21,11 +21,12 @@
             gap: 1.5rem;
 
             h2 {
-                font-size: 6rem;
+                font-size: 7rem;
                 font-weight: 900;
                 color: #1a1a1a;
-                font-family: "Geist", sans-serif;
+                font-family: "MuseoModerno", sans-serif;
                 letter-spacing: -1px;
+                margin-bottom: -1rem;
             }
 
             button {
@@ -74,15 +75,17 @@
                     h3 {
                         font-size: 2.3rem;
                         color: black;
-                        margin-bottom: 0.8rem;
+                        margin-bottom: 0.7rem;
                         font-weight: 700;
+                        font-family: "Anek Latin", sans-serif;
                     }
 
                     p {
-                        font-size: 1.15rem;
+                        font-size: 1rem;
                         color: #555;
                         line-height: 1.6;
                         max-width: 90%;
+                        font-family: "Space Grotesk", sans-serif;
                     }
 
                     .tags {
@@ -90,6 +93,7 @@
                         display: flex;
                         gap: 0.5rem;
                         flex-wrap: wrap;
+                        font-family: "Space Grotesk", sans-serif;
 
                         span {
                             display: inline-block;

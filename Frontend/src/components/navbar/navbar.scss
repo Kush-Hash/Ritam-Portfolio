@@ -26,10 +26,11 @@
 
 /* LEFT: Logo */
 .nav-wrapper span {
-    font-weight: 700;
-    font-size: 1.4rem;
+    font-weight: 500;
+    font-size: 1.2rem;
     letter-spacing: 1px;
     color: white;
+    font-family: "MuseoModerno", sans-serif;
 }
 
 .logo-link {
@@ -52,6 +53,7 @@
     text-decoration: none;
     position: relative;
     transition: opacity 0.3s ease;
+    font-family: "MuseoModerno", sans-serif;
 
     &:hover {
         opacity: 0.8;

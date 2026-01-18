@@ -46,9 +46,9 @@ const Contact = () => {
                     </p>
 
                     <div className="details">
-                        <p><span>Email</span> — ritammondal738@gmail.com</p>
-                        <p><span>Address</span> — Kalyani, Nadia</p>
-                        <p><span>Phone</span> — +91 6290683175</p>
+                        <p><span>Email</span> : ritammondal738@gmail.com</p>
+                        <p><span>Address</span> : Kalyani, Nadia</p>
+                        <p><span>Phone</span> : +91 6290683175</p>
                     </div>
                 </div>
 

@@ -32,8 +32,8 @@ export default function Home() {
                 <div style={{ width: '100%', height: '110vh', marginBottom: '50px' }}>
                     <DomeGallery
                         fit={1}
-                        minRadius={1000}
-                        maxVerticalRotationDeg={10}
+                        minRadius={1200}
+                        maxVerticalRotationDeg={5}
                         dragDampening={10}
                     />
                 </div>

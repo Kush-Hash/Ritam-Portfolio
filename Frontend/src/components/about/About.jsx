@@ -21,14 +21,12 @@ const About = () => {
                         <div className="info-box">
                             <h3>Who I Am</h3>
                             <p>
-                                Iâ€™m a creative developer passionate about crafting smooth,
-                                visually engaging digital experiences with a focus on precision
-                                and detail.
+                                I’m a young creative professional from Kalyani, focused on growing my craft and telling meaningful stories through visuals.
                             </p>
                             <div className="tags">
-                                <span>Commercial</span>
+                                <span>Events</span>
                                 <span>Brand films</span>
-                                <span>Corporate</span>
+                                <span>Reels</span>
                                 <span>Product Videos</span>
                             </div>
                         </div>
@@ -36,8 +34,7 @@ const About = () => {
                         <div className="info-box">
                             <h3>What I Do</h3>
                             <p>
-                                I specialize in front-end development using React, GSAP, and
-                                Three.js to build interactive and responsive user interfaces.
+                                I’m a video editor specializing in weddings, events, and reels, crafting cinematic stories that capture real emotions and moments.
                             </p>
                             <div className="tags">
                                 <span>Commercial</span>
@@ -50,13 +47,12 @@ const About = () => {
                         <div className="info-box">
                             <h3>My Vision</h3>
                             <p>
-                                My goal is to merge design and technology to create experiences
-                                that inspire and connect with people globally.
+                                My vision is to turn real moments into timeless visual stories focusing on emotion, detail, and storytelling that people can truly feel.
                             </p>
                             <div className="tags">
                                 <span>Commercial</span>
                                 <span>Brand films</span>
-                                <span>Corporate</span>
+                                <span>Reels</span>
                                 <span>Product Videos</span>
                             </div>
                         </div>
