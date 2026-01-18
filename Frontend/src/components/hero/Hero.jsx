@@ -16,14 +16,12 @@ const Hero = () => {
             {/* Background Video */}
             <motion.video
                 className="backgroundVideo"
-                src="https://res.cloudinary.com/dwnoyi7gc/video/upload/v1767890750/hero2_kpdtfx.mp4"
+                src="https://res.cloudinary.com/dwnoyi7gc/video/upload/q_auto,f_auto/hero2_kpdtfx.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
+                preload="metadata"
             />
 
             {/* Left Content Only */}

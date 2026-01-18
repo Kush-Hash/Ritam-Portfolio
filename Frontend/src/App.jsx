@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./app.scss";
 
@@ -18,6 +18,7 @@ const App = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorScale, setCursorScale] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
   const hoverSoundRef = useRef(null);
@@ -30,13 +31,13 @@ const App = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // ✅ Preloader
+  // ✅ Preloader timer (visual only)
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  // ✅ Unlock audio after first user interaction (click / move / keypress)
+  // ✅ Unlock audio on first interaction
   useEffect(() => {
     const enableSound = () => {
       if (hoverSoundRef.current) {
@@ -64,15 +65,16 @@ const App = () => {
     };
   }, []);
 
-  // ✅ Track cursor
+  // ✅ Cursor tracking
   useEffect(() => {
     if (isMobile) return;
-    const handleMouseMove = (e) => setCursorPos({ x: e.clientX, y: e.clientY });
+    const handleMouseMove = (e) =>
+      setCursorPos({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [isMobile]);
 
-  // ✅ Handle hover scaling + sound (only for buttons and links)
+  // ✅ Hover sound (buttons & links)
   useEffect(() => {
     if (isMobile) return;
 
@@ -86,19 +88,11 @@ const App = () => {
       }
     };
 
-    const handleMouseOut = (e) => {
-      // No scaling reset needed anymore
-    };
-
     window.addEventListener("mouseover", handleMouseOver);
-    window.addEventListener("mouseout", handleMouseOut);
-    return () => {
-      window.removeEventListener("mouseover", handleMouseOver);
-      window.removeEventListener("mouseout", handleMouseOut);
-    };
+    return () => window.removeEventListener("mouseover", handleMouseOver);
   }, [isMobile]);
 
-  // ✅ Handle hover scaling (only for images and videos)
+  // ✅ Hover scaling (images & videos)
   useEffect(() => {
     if (isMobile) return;
 
@@ -125,48 +119,49 @@ const App = () => {
 
   return (
     <>
-      {/* 🎵 Hidden Audio Tag */}
+      {/* 🎵 Hidden Audio */}
       <audio ref={hoverSoundRef} src="/click.mp3" preload="auto" />
 
       <Sidebar />
       <Navbar />
 
-      <AnimatePresence mode="wait" initial={false}>
-        {isLoading ? (
-          <Preloader key="preloader" />
-        ) : (
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {!isMobile && (
-              <button className="connectBtn" onClick={() => navigate("/contact")}>
-                Hire Me
-              </button>
-            )}
+      {/* ✅ Preloader (visual only) */}
+      <Preloader isLoading={isLoading} />
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/admin" element={<Admin />} />
-              <Route path="/admin/featured" element={<AdminFeatured />} />
-            </Routes>
-
-            <Footer />
-          </motion.div>
+      {/* ✅ App content is ALWAYS mounted */}
+      <motion.div
+        key={location.pathname}
+        style={{
+          visibility: isLoading ? "hidden" : "visible",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        {!isMobile && (
+          <button className="connectBtn" onClick={() => navigate("/contact")}>
+            Hire Me
+          </button>
         )}
-      </AnimatePresence>
 
-      {/* ✅ Smooth scaling cursor */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/featured" element={<AdminFeatured />} />
+        </Routes>
+
+        <Footer />
+      </motion.div>
+
+      {/* ✅ Custom Cursor */}
       {!isMobile && (
         <div
           className="custom-cursor"
           style={{
-            transform: `translate(${cursorPos.x - 10}px, ${cursorPos.y - 10}px) scale(${cursorScale})`,
+            transform: `translate(${cursorPos.x - 10}px, ${cursorPos.y - 10
+              }px) scale(${cursorScale})`,
             transition: "transform 0s, scale 0.25s ease-out",
           }}
         />
