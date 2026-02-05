@@ -34,7 +34,7 @@ const About = () => {
                         <div className="info-box">
                             <h3>What I Do</h3>
                             <p>
-                                I’m a video editor specializing in weddings, events, and reels, crafting cinematic stories that capture real emotions and moments.
+                                Im a video editor and visual storyteller who creates clean, cinematic content for brands. I focus on real emotion, strong visuals, and storytelling that feels natural and engaging.
                             </p>
                             <div className="tags">
                                 <span>Commercial</span>
